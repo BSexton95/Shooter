@@ -10,8 +10,6 @@ namespace MathForGames
     {
         private float _speed;
         private Vector2 _velocity;
-        private Vector2 _position;
-        private Player _player;
         private Vector2 _bulletDirection;
 
         public float Speed
@@ -47,10 +45,13 @@ namespace MathForGames
             base.Draw();
         }
 
-        public override void OnCollision(Actor actor)
+        public override void OnCollision(Actor actor, Scene scene)
         {
             if (actor is Enemy)
-                Engine.CloseApplication();
+            {
+                scene.RemoveActor(actor);
+                scene.RemoveActor(this);
+            }
         }
     }
 }

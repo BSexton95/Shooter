@@ -12,6 +12,7 @@ namespace MathForGames
         private Vector2 _velocity;
         private Bullets _bullet;
         private Scene _scene;
+        
 
         public float Speed
         {
@@ -49,7 +50,7 @@ namespace MathForGames
             {
                 Bullets bullet = new Bullets('.', Position, Forward, Color.BLACK, 150, "Bullet");
                 bullet.CollisionRadius = 10;
-
+                
                 currentScene.AddActor(bullet);
             }
 
@@ -68,10 +69,10 @@ namespace MathForGames
             base.Update(deltaTime, currentScene);
         }
 
-        public override void OnCollision(Actor actor)
+        public override void OnCollision(Actor actor, Scene scene)
         {
-            if (actor is Enemy)
-                Engine.CloseApplication();
+            //if (actor is Enemy)
+              //  scene.RemoveActor(actor);
         }
     }
 }
