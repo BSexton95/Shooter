@@ -12,6 +12,8 @@ namespace MathForGames
         private Vector2 _velocity;
         private Bullets _bullet;
         private Scene _scene;
+        private int _lives = 3;
+        private int _points;
         
 
         public float Speed
@@ -25,6 +27,19 @@ namespace MathForGames
             get { return _velocity; }
             set { _velocity = value; }
         }
+
+        public int Lives
+        {
+            get { return _lives; }
+            set { _lives = value; }
+        }
+
+        public int Points
+        {
+            get { return _points; }
+            set { _points = value; }
+        }
+
         public Player() { }
 
         public Player(char icon, float x, float y, float speed, Color color, string name = "Actor")
