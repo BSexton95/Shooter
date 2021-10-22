@@ -63,8 +63,13 @@ namespace MathForGames
             Scene scene = new Scene();
 
             Player player = new Player('@', 10, 10, 100, Color.VIOLET, "Player");
-            Actor enemy = new Actor('A', 200, 5, Color.RED, "Enemy");
+            player.CollisionRadius = 10;
+            Enemy enemy = new Enemy('A', 200, 5, Color.RED, 75, 100, 1, player, "Enemy");
+            enemy.CollisionRadius = 10;
+            UIText text = new UIText(10, 10, Color.BLUE, "Test", 20, 20, 50, "Hello");
 
+
+            scene.AddUIElement(text);
             scene.AddActor(enemy);
             scene.AddActor(player);
 
@@ -80,6 +85,7 @@ namespace MathForGames
         private void Update(float deltaTime)
         {
             _scenes[_currentSceneIndex].Update(deltaTime);
+            _scenes[_currentSceneIndex].UpdateUI(deltaTime);
         }
 
         /// <summary>
@@ -88,10 +94,11 @@ namespace MathForGames
         private void Draw()
         {
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(Color.BLACK);
+            Raylib.ClearBackground(Color.LIGHTGRAY);
 
             //Adds all actor icons to buffer
             _scenes[_currentSceneIndex].Draw();
+            _scenes[_currentSceneIndex].DrawUI();
 
             Raylib.EndDrawing();
         }
@@ -119,7 +126,7 @@ namespace MathForGames
             Scene[] tempArray = new Scene[_scenes.Length + 1];
 
             //Copy all values from old array into the new array
-            for (int i = 0; i < _scenes.Length; i ++)
+            for (int i = 0; i < _scenes.Length; i++)
             {
                 tempArray[i] = _scenes[i];
             }

@@ -10,10 +10,15 @@ namespace MathForGames
         /// Array that contains all actors in the scene
         /// </summary>
         private Actor[] _actors;
+        /// <summary>
+        /// Array that contains all UI elements in the scene
+        /// </summary>
+        private Actor[] _UIElements;
 
         public Scene()
         {
             _actors = new Actor[0];
+            _UIElements = new Actor[0];
         }
 
         /// <summary>
@@ -45,11 +50,27 @@ namespace MathForGames
                 //Check for collision
                 for (int j = 0; j < _actors.Length; j++)
                 {
-                    if (_actors[i].Position == _actors[j].Position && j != i)
+                    if (_actors[i].CheckForCollision(_actors[j]) && j != i)
                         _actors[i].OnCollision(_actors[j]);
                 }
             }
         }
+
+        /// <summary>
+        /// Calls update UI for every UI element in the scene.
+        /// Calls start for the UI emlement if it hasn't already been called.
+        /// </summary>
+        public virtual void UpdateUI(float deltaTime)
+        {
+            for (int i = 0; i < _UIElements.Length; i++)
+            {
+                if (!_UIElements[i].Started)
+                    _UIElements[i].Start();
+
+                _UIElements[i].Update(deltaTime);
+            }
+        }
+
 
         /// <summary>
         /// Calls draw for every actor in the array
@@ -59,6 +80,17 @@ namespace MathForGames
             for (int i = 0; i < _actors.Length; i++)
             {
                 _actors[i].Draw();
+            }
+        }
+
+        /// <summary>
+        /// Calls draw UI for every UI element in the array
+        /// </summary>
+        public virtual void DrawUI()
+        {
+            for (int i = 0; i < _UIElements.Length; i++)
+            {
+                _UIElements[i].Draw();
             }
         }
 
@@ -110,10 +142,10 @@ namespace MathForGames
 
             //Copy all values except the actor we don't want into the new array
             int j = 0;
-            for(int i = 0; i < tempArray.Length; i++)
+            for (int i = 0; i < tempArray.Length; i++)
             {
                 //If the actor that the loop is on is not the one to remove...
-                if(_actors[i] != actor)
+                if (_actors[i] != actor)
                 {
                     //...add the actor into the new array and increment the temp array counter
                     tempArray[j] = _actors[i];
@@ -133,8 +165,31 @@ namespace MathForGames
                 //...set the old array to be the new array
                 _actors = tempArray;
             }
-           
+
             return actorRemoved;
         }
+
+        /// <summary>
+        /// Adds a UI element to the scenes list of UI elements
+        /// </summary>
+        /// <param name="UI">The UI to add to the scene</param>
+        public virtual void AddUIElement(Actor UI)
+        {
+            //Create a temporary array larger than the original
+            Actor[] tempArray = new Actor[_UIElements.Length + 1];
+
+            //Copy all values from the original array into the temporary array
+            for (int i = 0; i < _UIElements.Length; i++)
+            {
+                tempArray[i] = _UIElements[i];
+            }
+
+            //Add the new UI element to the end of the new array
+            tempArray[_UIElements.Length] = UI;
+
+            //Set the old array to be the new array
+            _UIElements = tempArray;
+        }
+
     }
 }
