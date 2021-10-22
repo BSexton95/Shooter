@@ -66,7 +66,7 @@ namespace MathForGames
             player.CollisionRadius = 10;
             Enemy enemy = new Enemy('A', 200, 5, Color.RED, 75, 100, 1, player, "Enemy");
             enemy.CollisionRadius = 10;
-            UIText text = new UIText(10, 10, Color.BLUE, "Test", 20, 20, 50, "Hello");
+            UIText text = new UIText(10, 10, Color.BLUE, "Test", 50, 50, 10, "Hello");
 
 
             scene.AddUIElement(text);
