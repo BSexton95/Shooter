@@ -36,7 +36,7 @@ namespace MathForGames
         /// Calls update for every actor in the scene. 
         /// Calls start for the actor if it hasn't already been called.
         /// </summary>
-        public virtual void Update(float deltaTime)
+        public virtual void Update(float deltaTime, Scene currentScene)
         {
             for (int i = 0; i < _actors.Length; i++)
             {
@@ -45,7 +45,7 @@ namespace MathForGames
                     _actors[i].Start();
                 }
 
-                _actors[i].Update(deltaTime);
+                _actors[i].Update(deltaTime, currentScene);
 
                 //Check for collision
                 for (int j = 0; j < _actors.Length; j++)
@@ -60,14 +60,14 @@ namespace MathForGames
         /// Calls update UI for every UI element in the scene.
         /// Calls start for the UI emlement if it hasn't already been called.
         /// </summary>
-        public virtual void UpdateUI(float deltaTime)
+        public virtual void UpdateUI(float deltaTime, Scene currentScene)
         {
             for (int i = 0; i < _UIElements.Length; i++)
             {
                 if (!_UIElements[i].Started)
                     _UIElements[i].Start();
 
-                _UIElements[i].Update(deltaTime);
+                _UIElements[i].Update(deltaTime, currentScene);
             }
         }
 

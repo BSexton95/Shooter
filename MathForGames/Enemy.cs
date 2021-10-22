@@ -35,7 +35,7 @@ namespace MathForGames
             _maxSightDistance = maxSightDistance;
         }
 
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime, Scene currentScene)
         {
 
             Vector2 enemyDistance = (_target.Position - Position).Normalized;
@@ -45,7 +45,7 @@ namespace MathForGames
             if (GetTargetInSight())
                 Position += Velocity;
 
-            base.Update(deltaTime);
+            base.Update(deltaTime, currentScene);
         }
 
         public bool GetTargetInSight()

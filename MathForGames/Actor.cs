@@ -71,7 +71,7 @@ namespace MathForGames
             _started = true;
         }
 
-        public virtual void Update(float deltaTime)
+        public virtual void Update(float deltaTime, Scene currentScene)
         {
             Console.WriteLine(_name + ": " + Position.X + ", " + Position.Y);
 
@@ -90,7 +90,7 @@ namespace MathForGames
 
         public virtual void OnCollision(Actor actor)
         {
-            Engine.CloseApplication();
+            //Engine.CloseApplication();
         }
 
         /// <summary>
