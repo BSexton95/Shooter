@@ -66,17 +66,18 @@ namespace MathForGames
             Player player = new Player('@', 40, 40, 100, Color.VIOLET, "Player");
             CircleCollider playerCircleCollider = new CircleCollider(10, player);
             AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
-            player.Collider = playerBoxCollider;
+            player.Collider = playerCircleCollider;
+
 
             Enemy enemy = new Enemy('E', 300, 50, Color.RED, 75, 100, 1, player, "Enemy");
             CircleCollider enemyCircleCollider = new CircleCollider(10, enemy);
             AABBCollider enemyBoxCollider = new AABBCollider(50, 50, enemy);
             enemy.Collider = enemyBoxCollider;
 
-            UIText lives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + player.Lives);
+            //UIText lives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + player.Lives);
             UIText points = new UIText(10, 20, Color.BLUE, "Points", 60, 60, 10, "Points = " + player.Points);
 
-            scene.AddUIElement(lives);
+           // scene.AddUIElement(lives);
             scene.AddUIElement(points);
             scene.AddActor(enemy);
             scene.AddActor(player);

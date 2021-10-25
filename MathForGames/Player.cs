@@ -50,6 +50,7 @@ namespace MathForGames
 
         public override void Update(float deltaTime, Scene currentScene)
         {
+            
 
             //Get the player input direction
             int xDirection = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))
@@ -84,6 +85,7 @@ namespace MathForGames
             }
             //Prints players position
             base.Update(deltaTime, currentScene);
+
         }
 
         public override void OnCollision(Actor actor, Scene scene)
@@ -91,6 +93,9 @@ namespace MathForGames
             if (actor is Enemy)
             {
                 scene.RemoveActor(this);
+                Lives--;
+                UIText lives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + Lives);
+                scene.AddUIElement(lives);
             }
         }
 

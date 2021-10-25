@@ -98,6 +98,11 @@ namespace MathForGames
             return false;
         }
 
+        public override bool CheckCollisionCircle(CircleCollider other)
+        {
+            return other.CheckCollisionAABB(this); 
+        }
+
         public override void Draw()
         {
             Raylib.DrawRectangleLines((int)Left, (int)Top, (int)Width, (int)Height, Color.RED);
