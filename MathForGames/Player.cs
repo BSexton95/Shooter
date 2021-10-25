@@ -90,6 +90,7 @@ namespace MathForGames
             if (actor is Enemy)
             {
                 scene.RemoveActor(this);
+                
             }
         }
     }
