@@ -67,9 +67,12 @@ namespace MathForGames
             player.CollisionRadius = 10;
             Enemy enemy = new Enemy('E', 300, 50, Color.RED, 75, 100, 1, player, "Enemy");
             enemy.CollisionRadius = 10;
+            Enemy enemy2 = new Enemy('E', 300, 100, Color.RED, 75, 100, 1, player, "Enemy");
+            enemy2.CollisionRadius = 10;
             UIText lives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + player.Lives);
             UIText points = new UIText(10, 20, Color.BLUE, "Points", 60, 60, 10, "Points = " + player.Points);
 
+            scene.AddActor(enemy2);
             scene.AddUIElement(lives);
             scene.AddUIElement(points);
             scene.AddActor(enemy);
