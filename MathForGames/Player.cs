@@ -52,6 +52,7 @@ namespace MathForGames
         {
             
 
+
             //Get the player input direction
             int xDirection = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))
                 + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_D));
@@ -90,13 +91,18 @@ namespace MathForGames
 
         public override void OnCollision(Actor actor, Scene scene)
         {
+            
+
             if (actor is Enemy)
             {
-                scene.RemoveActor(this);
-                Lives--;
-                UIText lives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + Lives);
-                scene.AddUIElement(lives);
+                Lives --
+                Position = new Vector2(20, 20);
+                
+                //UIText newLives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + Lives);
+                //scene.AddUIElement(newLives);
             }
+
+           
         }
 
         public override void Draw()
