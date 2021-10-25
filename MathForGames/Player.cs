@@ -93,5 +93,11 @@ namespace MathForGames
                 scene.RemoveActor(this);
             }
         }
+
+        public override void Draw()
+        {
+            base.Draw();
+            Collider.Draw();
+        }
     }
 }

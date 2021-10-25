@@ -58,7 +58,11 @@ namespace MathForGames
             return Math.Acos(dotProduct) < _maxViewAngle && distanceToTarget < _maxSightDistance;
         }
 
-
+        public override void Draw()
+        {
+            base.Draw();
+            Collider.Draw();
+        }
 
     }
 }

@@ -32,5 +32,13 @@ namespace MathForGames
 
             return distance <= combinedRadii;
         }
+
+        public override bool CheckCollisionAABB(AABBCollider other)
+        {
+            if (other.Owner == Owner)
+                return false;
+
+
+        }
     }
 }
