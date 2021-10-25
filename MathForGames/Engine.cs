@@ -64,9 +64,13 @@ namespace MathForGames
             Scene scene = new Scene();
 
             Player player = new Player('@', 40, 40, 100, Color.VIOLET, "Player");
-            player.CollisionRadius = 10;
+            CircleCollider playerCollider = new CircleCollider(10, player);
+            player.Collider = playerCollider;
+
             Enemy enemy = new Enemy('E', 300, 50, Color.RED, 75, 100, 1, player, "Enemy");
-            enemy.CollisionRadius = 10;
+            CircleCollider enemyCollider = new CircleCollider(10, enemy);
+            enemy.Collider = enemyCollider;
+
             UIText lives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + player.Lives);
             UIText points = new UIText(10, 20, Color.BLUE, "Points", 60, 60, 10, "Points = " + player.Points);
 

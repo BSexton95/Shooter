@@ -30,6 +30,7 @@ namespace MathForGames
             //Find the length of the radii combined
             float combinedRadii = other.CollisionRadius + CollisionRadius;
 
+            return distance <= combinedRadii;
         }
     }
 }

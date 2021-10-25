@@ -65,7 +65,8 @@ namespace MathForGames
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 Bullets bullet = new Bullets('.', Position, Forward, Color.BLACK, 150, "Bullet");
-                bullet.CollisionRadius = 10;
+                CircleCollider bulletCollider = new CircleCollider(10, bullet);
+                bullet.Collider = bulletCollider;
                 
                 currentScene.AddActor(bullet);
             }
