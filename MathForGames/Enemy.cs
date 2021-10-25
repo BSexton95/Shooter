@@ -58,5 +58,7 @@ namespace MathForGames
             return Math.Acos(dotProduct) < _maxViewAngle && distanceToTarget < _maxSightDistance;
         }
 
+
+
     }
 }

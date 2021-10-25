@@ -54,6 +54,7 @@ namespace MathForGames
         /// </summary>
         private void Start()
         {
+            
             _stopWatch.Start();
 
             //Create a window using raylib
@@ -62,13 +63,15 @@ namespace MathForGames
 
             Scene scene = new Scene();
 
-            Player player = new Player('@', 10, 10, 100, Color.VIOLET, "Player");
+            Player player = new Player('@', 40, 40, 100, Color.VIOLET, "Player");
             player.CollisionRadius = 10;
-            Enemy enemy = new Enemy('A', 300, 5, Color.RED, 75, 100, 1, player, "Enemy");
+            Enemy enemy = new Enemy('E', 300, 50, Color.RED, 75, 100, 1, player, "Enemy");
             enemy.CollisionRadius = 10;
-            UIText text = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + player.Lives);
-            
-            scene.AddUIElement(text);
+            UIText lives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + player.Lives);
+            UIText points = new UIText(10, 20, Color.BLUE, "Points", 60, 60, 10, "Points = " + player.Points);
+
+            scene.AddUIElement(lives);
+            scene.AddUIElement(points);
             scene.AddActor(enemy);
             scene.AddActor(player);
 
