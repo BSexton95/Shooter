@@ -11,6 +11,7 @@ namespace MathForGames
         private float _speed;
         private Vector2 _velocity;
         private Vector2 _bulletDirection;
+        private int _points;
 
         public float Speed
         {
@@ -22,6 +23,12 @@ namespace MathForGames
         {
             get { return _velocity; }
             set { _velocity = value; }
+        }
+
+        public int Points
+        {
+            get { return _points; }
+            set { _points = value; }
         }
 
         public Bullets(char icon, Vector2 position, Vector2 bulletDirection, Color color, float speed, string name = "Bullet") 
@@ -51,6 +58,7 @@ namespace MathForGames
             {
                 scene.RemoveActor(actor);
                 scene.RemoveActor(this);
+                Points++;
 
                 UIText winner = new UIText(200, 200, Color.BLUE, "Winner", 80, 80, 20, "You win!");
 

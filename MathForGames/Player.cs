@@ -13,7 +13,7 @@ namespace MathForGames
         private Bullets _bullet;
         private Scene _scene;
         private int _lives = 3;
-        private int _points;
+        
         
 
         public float Speed
@@ -34,11 +34,7 @@ namespace MathForGames
             set { _lives = value; }
         }
 
-        public int Points
-        {
-            get { return _points; }
-            set { _points = value; }
-        }
+        
 
         public Player() { }
 
@@ -50,6 +46,8 @@ namespace MathForGames
 
         public override void Update(float deltaTime, Scene currentScene)
         {
+            PointsCounter tempPoints = new PointsCounter(20, 20, Color.VIOLET, "Points",);
+            currentScene.AddUIElement(tempPoints);
 
             //Get the player input direction
             int xDirection = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))
@@ -67,9 +65,13 @@ namespace MathForGames
                 Bullets bullet = new Bullets('.', Position, Forward, Color.BLACK, 150, "Bullet");
                 CircleCollider bulletCollider = new CircleCollider(10, bullet);
                 bullet.Collider = bulletCollider;
-                
+
+                PointsCounter points = new PointsCounter(20, 20, bullet, Color.VIOLET, "Bullets");
+
+                currentScene.AddUIElement(points);
                 currentScene.AddActor(bullet);
             }
+            currentScene.UpdateUI(deltaTime, tempPoints);
 
             if (xDirection != 0 || yDirection != 0)
             {

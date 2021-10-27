@@ -7,6 +7,7 @@ namespace MathForGames
     class PlayerHud : Actor
     {
         private Player _player;
+        private Bullets _bullets;
         private UIText _lives;
         private UIText _points;
 
@@ -27,7 +28,7 @@ namespace MathForGames
         public override void Update(float deltaTime, Scene currentScene)
         {
             _lives.Text = "Lives: " + _player.Lives.ToString();
-            _points.Text = "Points: " + _player.Points.ToString();
+            _points.Text = "Points: " + _bullets.Points.ToString();
         }
 
         public override void Draw()
