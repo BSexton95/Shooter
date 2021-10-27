@@ -67,6 +67,7 @@ namespace MathForGames
             CircleCollider playerCircleCollider = new CircleCollider(10, player);
             AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
             player.Collider = playerCircleCollider;
+            Lives lives = new Lives(40, 40, Color.VIOLET, player, "Lives");
 
             //Enemy 1
             Enemy enemy = new Enemy('R', 300, 50, Color.RED, 75, 100, 1, player, "Enemy");
@@ -84,7 +85,7 @@ namespace MathForGames
             AABBCollider enemyBoxCollider3 = new AABBCollider(50, 50, enemy3);
             enemy3.Collider = enemyBoxCollider3;
 
-            UIText lives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + player.Lives);
+            //UIText lives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + player.Lives);
             UIText points = new UIText(10, 20, Color.BLUE, "Points", 60, 60, 10, "Points = " + player.Points);
 
             scene.AddUIElement(lives);

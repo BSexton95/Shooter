@@ -93,11 +93,8 @@ namespace MathForGames
 
             if (actor is Enemy)
             {
-                Lives--;
                 Position = new Vector2(20, 20);
-                
-                //UIText newLives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + Lives);
-                //scene.AddUIElement(newLives);
+                Lives--;
             }
 
            

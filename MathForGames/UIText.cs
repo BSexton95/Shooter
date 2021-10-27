@@ -22,6 +22,16 @@ namespace MathForGames
             FontSize = fontSize;
 
         }
+
+        public UIText(float x, float y, Color color, string name, string text = " ") : base('\0', x, y, color, name)
+        {
+            Text = text;
+            Width = 200;
+            Height = 200;
+            Font = Raylib.LoadFont("resources/fonts/alagard.png");
+            FontSize = 25;
+        }
+
         public override void Draw()
         {
             //Create a new rectangle that will act as the borders of the text box
