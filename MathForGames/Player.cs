@@ -50,8 +50,6 @@ namespace MathForGames
 
         public override void Update(float deltaTime, Scene currentScene)
         {
-            
-
 
             //Get the player input direction
             int xDirection = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))

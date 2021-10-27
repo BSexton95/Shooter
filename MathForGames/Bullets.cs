@@ -51,6 +51,7 @@ namespace MathForGames
             {
                 scene.RemoveActor(actor);
                 scene.RemoveActor(this);
+
                 UIText winner = new UIText(200, 200, Color.BLUE, "Winner", 80, 80, 20, "You win!");
 
                 scene.AddUIElement(winner);

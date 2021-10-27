@@ -68,11 +68,21 @@ namespace MathForGames
             AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
             player.Collider = playerCircleCollider;
 
-
-            Enemy enemy = new Enemy('E', 300, 50, Color.RED, 75, 100, 1, player, "Enemy");
+            //Enemy 1
+            Enemy enemy = new Enemy('R', 300, 50, Color.RED, 75, 100, 1, player, "Enemy");
             CircleCollider enemyCircleCollider = new CircleCollider(10, enemy);
             AABBCollider enemyBoxCollider = new AABBCollider(50, 50, enemy);
             enemy.Collider = enemyBoxCollider;
+
+            //Enemy 2
+            Enemy enemy2 = new Enemy('A', 500, 50, Color.RED, 75, 100, 1, player, "Enemy");
+            AABBCollider enemyBoxCollider2 = new AABBCollider(50, 50, enemy2);
+            enemy2.Collider = enemyBoxCollider2;
+
+            //Enemy 3
+            Enemy enemy3 = new Enemy('T', 600, 50, Color.RED, 75, 100, 1, player, "Enemy");
+            AABBCollider enemyBoxCollider3 = new AABBCollider(50, 50, enemy3);
+            enemy3.Collider = enemyBoxCollider3;
 
             UIText lives = new UIText(10, 10, Color.BLUE, "Lives", 50, 50, 10, "Lives = " + player.Lives);
             UIText points = new UIText(10, 20, Color.BLUE, "Points", 60, 60, 10, "Points = " + player.Points);
@@ -80,6 +90,8 @@ namespace MathForGames
             scene.AddUIElement(lives);
             scene.AddUIElement(points);
             scene.AddActor(enemy);
+            scene.AddActor(enemy2);
+            scene.AddActor(enemy3);
             scene.AddActor(player);
 
             _currentSceneIndex = AddScene(scene);
