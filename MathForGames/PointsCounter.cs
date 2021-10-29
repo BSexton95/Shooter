@@ -20,6 +20,9 @@ namespace MathForGames
         {
             base.Update(deltaTime, currentScene);
 
+            UIText tempPoints = new UIText(20, 20, Color.VIOLET, "Points", "Points = 0");
+            currentScene.AddUIElement(tempPoints);
+
             Text = "Points: " + _bullets.Points.ToString();
         }
     }

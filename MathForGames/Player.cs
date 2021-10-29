@@ -46,8 +46,8 @@ namespace MathForGames
 
         public override void Update(float deltaTime, Scene currentScene)
         {
-            UIText tempPoints = new UIText(20, 20, Color.VIOLET, "Points", "Points = 0");
-            currentScene.AddUIElement(tempPoints);
+            //UIText tempPoints = new UIText(20, 20, Color.VIOLET, "Points", "Points = 0");
+            //currentScene.AddUIElement(tempPoints);
 
             //Get the player input direction
             int xDirection = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))
@@ -60,18 +60,19 @@ namespace MathForGames
             else
                 _speed = 100;
 
+            //If player pressed the spacebar...
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
+                //...bullet will spawn
                 Bullets bullet = new Bullets('.', Position, Forward, Color.BLACK, 150, "Bullet");
                 CircleCollider bulletCollider = new CircleCollider(10, bullet);
                 bullet.Collider = bulletCollider;
 
-                PointsCounter points = new PointsCounter(20, 20, bullet, Color.VIOLET, "Bullets");
-                currentScene.UpdateUI(deltaTime, points);
-                currentScene.AddUIElement(points);
+                //PointsCounter points = new PointsCounter(20, 20, bullet, Color.VIOLET, "Bullets");
+                
+                //currentScene.AddUIElement(points);
                 currentScene.AddActor(bullet);
             }
-            
 
             if (xDirection != 0 || yDirection != 0)
             {
@@ -91,10 +92,10 @@ namespace MathForGames
 
         public override void OnCollision(Actor actor, Scene scene)
         {
-            
-
+            //If player collides with enemy...
             if (actor is Enemy)
             {
+                //...player respawns and loses a life
                 Position = new Vector2(20, 20);
                 Lives--;
             }

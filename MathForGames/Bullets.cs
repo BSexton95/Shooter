@@ -40,7 +40,6 @@ namespace MathForGames
 
         public override void Update(float deltaTime, Scene currentScene)
         {
-
             Position += _bulletDirection.Normalized * Speed * deltaTime;;
 
             base.Update(deltaTime, currentScene);
@@ -54,12 +53,15 @@ namespace MathForGames
 
         public override void OnCollision(Actor actor, Scene scene)
         {
+            //If player collides with enemy...
             if (actor is Enemy)
             {
+                //...enemy and the bullet are removed from scene and points is incremented
                 scene.RemoveActor(actor);
                 scene.RemoveActor(this);
                 Points++;
 
+                //Text is displayed with enemy is shot
                 UIText winner = new UIText(200, 200, Color.BLUE, "Winner", 80, 80, 20, "You win!");
 
                 scene.AddUIElement(winner);
