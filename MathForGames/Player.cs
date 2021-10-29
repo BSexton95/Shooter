@@ -46,7 +46,7 @@ namespace MathForGames
 
         public override void Update(float deltaTime, Scene currentScene)
         {
-            PointsCounter tempPoints = new PointsCounter(20, 20, Color.VIOLET, "Points",);
+            UIText tempPoints = new UIText(20, 20, Color.VIOLET, "Points", "Points = 0");
             currentScene.AddUIElement(tempPoints);
 
             //Get the player input direction
@@ -67,11 +67,11 @@ namespace MathForGames
                 bullet.Collider = bulletCollider;
 
                 PointsCounter points = new PointsCounter(20, 20, bullet, Color.VIOLET, "Bullets");
-
+                currentScene.UpdateUI(deltaTime, points);
                 currentScene.AddUIElement(points);
                 currentScene.AddActor(bullet);
             }
-            currentScene.UpdateUI(deltaTime, tempPoints);
+            
 
             if (xDirection != 0 || yDirection != 0)
             {
