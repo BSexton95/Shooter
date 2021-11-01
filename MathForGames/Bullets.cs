@@ -31,8 +31,8 @@ namespace MathForGames
             set { _points = value; }
         }
 
-        public Bullets(char icon, Vector2 position, Vector2 bulletDirection, Color color, float speed, string name = "Bullet") 
-            : base(icon, position, color, name)
+        public Bullets(Vector2 position, Vector2 bulletDirection, Color color, float speed, string name = "Bullet", string path = "") 
+            : base(position, color, name, path)
         {
             _bulletDirection = bulletDirection;
             _speed = speed;
@@ -47,7 +47,7 @@ namespace MathForGames
 
         public override void Draw()
         {
-            Raylib.DrawText(Icon.Symbol.ToString(), (int)Position.X, (int)Position.Y, 50, Icon.Color);
+            //Raylib.DrawText(Icon.Symbol.ToString(), (int)Position.X, (int)Position.Y, 50, Icon.Color);
             base.Draw();
         }
 

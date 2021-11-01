@@ -63,25 +63,29 @@ namespace MathForGames
 
             Scene scene = new Scene();
 
-            Player player = new Player('@', 40, 40, 100, Color.VIOLET, "Player");
+            Player player = new Player(40, 40, 100, Color.VIOLET, "Player", "Images/player.png");
+            player.SetScale(50, 50);
+            player.SetTranslation(40, 40);
             CircleCollider playerCircleCollider = new CircleCollider(10, player);
             AABBCollider playerBoxCollider = new AABBCollider(50, 50, player);
             player.Collider = playerCircleCollider;
             Lives lives = new Lives(40, 40, Color.VIOLET, player, "Lives");
 
             //Enemy 1
-            Enemy enemy = new Enemy('R', 300, 50, Color.RED, 75, 100, 1, player, "Enemy");
+            Enemy enemy = new Enemy(300, 50, Color.RED, 75, 100, 1, player, "Enemy", "Images/enemy.png");
+            enemy.SetScale(50, 50);
+            enemy.SetTranslation(300, 50);
             CircleCollider enemyCircleCollider = new CircleCollider(10, enemy);
             AABBCollider enemyBoxCollider = new AABBCollider(50, 50, enemy);
             enemy.Collider = enemyBoxCollider;
 
             //Enemy 2
-            Enemy enemy2 = new Enemy('A', 500, 50, Color.RED, 75, 100, 1, player, "Enemy");
+            Enemy enemy2 = new Enemy(500, 50, Color.RED, 75, 100, 1, player, "Images/enemy.png");
             AABBCollider enemyBoxCollider2 = new AABBCollider(50, 50, enemy2);
             enemy2.Collider = enemyBoxCollider2;
 
             //Enemy 3
-            Enemy enemy3 = new Enemy('T', 600, 50, Color.RED, 75, 100, 1, player, "Enemy");
+            Enemy enemy3 = new Enemy(600, 50, Color.RED, 75, 100, 1, player, "Images/enemy.png");
             AABBCollider enemyBoxCollider3 = new AABBCollider(50, 50, enemy3);
             enemy3.Collider = enemyBoxCollider3;
 

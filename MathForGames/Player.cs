@@ -38,8 +38,8 @@ namespace MathForGames
 
         public Player() { }
 
-        public Player(char icon, float x, float y, float speed, Color color, string name = "Actor")
-            : base(icon, x, y, color, name)
+        public Player(float x, float y, float speed, Color color, string name = "Actor", string path = "")
+            : base(x, y, color, name, path)
         {
             _speed = speed;
         }
@@ -64,7 +64,7 @@ namespace MathForGames
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 //...bullet will spawn
-                Bullets bullet = new Bullets('.', Position, Forward, Color.BLACK, 150, "Bullet");
+                Bullets bullet = new Bullets(Position, Forward, Color.BLACK, 150, "Bullet", "Images/bullet.png");
                 CircleCollider bulletCollider = new CircleCollider(10, bullet);
                 bullet.Collider = bulletCollider;
 
@@ -74,17 +74,16 @@ namespace MathForGames
                 currentScene.AddActor(bullet);
             }
 
-            if (xDirection != 0 || yDirection != 0)
-            {
-                //Create a vector that stores the move input
-                Vector2 moveDirection = new Vector2(xDirection, yDirection);
+            //Create a vector that stores the move input
+            Vector2 moveDirection = new Vector2(xDirection, yDirection);
 
-                Velocity = moveDirection.Normalized * Speed * deltaTime;
+            Velocity = moveDirection.Normalized * Speed * deltaTime;
 
-                Position += Velocity;
+            Translate(Velocity.X, Velocity.Y);
 
-                Forward = moveDirection;
-            }
+            if (Velocity.Magnitude > 0)
+                Forward = Velocity.Normalized;
+
             //Prints players position
             base.Update(deltaTime, currentScene);
 

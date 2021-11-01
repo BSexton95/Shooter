@@ -13,7 +13,7 @@ namespace MathForGames
         public int FontSize;
         public Font Font;
 
-        public UIText(float x, float y, Color color, string name, int width, int height, int fontSize, string text = " ") : base('\0', x, y, color, name)
+        public UIText(float x, float y, Color color, string name, int width, int height, int fontSize, string text = " ") : base(x, y, color, name)
         {
             Text = text;
             Width = width;
@@ -23,7 +23,7 @@ namespace MathForGames
 
         }
 
-        public UIText(float x, float y, Color color, string name, string text = " ") : base('\0', x, y, color, name)
+        public UIText(float x, float y, Color color, string name, string text = " ") : base(x, y, color, name)
         {
             Text = text;
             Width = 200;
@@ -37,7 +37,7 @@ namespace MathForGames
             //Create a new rectangle that will act as the borders of the text box
             Rectangle textBox = new Rectangle(Position.X, Position.Y, Width, Height);
             //Draw text box
-            Raylib.DrawTextRec(Font, Text, textBox, FontSize, 1, true, Icon.Color);
+            //Raylib.DrawTextRec(Font, Text, textBox, FontSize, 1, true, Icon.Color);
         }
     }
 }
