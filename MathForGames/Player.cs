@@ -38,8 +38,8 @@ namespace MathForGames
 
         public Player() { }
 
-        public Player(float x, float y, float speed, Color color, string name = "Actor", string path = "")
-            : base(x, y, color, name, path)
+        public Player(float x, float y, float speed, string name = "Actor", string path = "")
+            : base(x, y, name, path)
         {
             _speed = speed;
         }
@@ -64,7 +64,7 @@ namespace MathForGames
             if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE))
             {
                 //...bullet will spawn
-                Bullets bullet = new Bullets(Position, Forward, Color.BLACK, 150, "Bullet", "Images/bullet.png");
+                Bullets bullet = new Bullets(Position, Forward, 150, "Bullet", "Images/bullet.png");
                 CircleCollider bulletCollider = new CircleCollider(10, bullet);
                 bullet.Collider = bulletCollider;
 

@@ -77,12 +77,12 @@ namespace MathForGames
 
         public Actor() { }
 
-        public Actor(float x, float y, Color color, string name = "Actor", string path = "") :
-            this( new Vector2 { X = x, Y = y }, color, name)
+        public Actor(float x, float y, string name = "Actor", string path = "") :
+            this( new Vector2 { X = x, Y = y }, name)
         { }
 
 
-        public Actor(Vector2 position, Color color, string name = "Actor", string path = "")
+        public Actor(Vector2 position, string name = "Actor", string path = "")
         {
             SetTranslation(Position.X, Position.Y);
             _name = name;

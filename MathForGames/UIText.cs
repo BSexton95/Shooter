@@ -13,7 +13,7 @@ namespace MathForGames
         public int FontSize;
         public Font Font;
 
-        public UIText(float x, float y, Color color, string name, int width, int height, int fontSize, string text = " ") : base(x, y, color, name)
+        public UIText(float x, float y, Color color, string name, int width, int height, int fontSize, string text = " ") : base(x, y, name)
         {
             Text = text;
             Width = width;
@@ -23,7 +23,7 @@ namespace MathForGames
 
         }
 
-        public UIText(float x, float y, Color color, string name, string text = " ") : base(x, y, color, name)
+        public UIText(float x, float y, Color color, string name, string text = " ") : base(x, y, name)
         {
             Text = text;
             Width = 200;

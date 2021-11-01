@@ -31,8 +31,8 @@ namespace MathForGames
             set { _points = value; }
         }
 
-        public Bullets(Vector2 position, Vector2 bulletDirection, Color color, float speed, string name = "Bullet", string path = "") 
-            : base(position, color, name, path)
+        public Bullets(Vector2 position, Vector2 bulletDirection, float speed, string name = "Bullet", string path = "") 
+            : base(position, name, path)
         {
             _bulletDirection = bulletDirection;
             _speed = speed;
